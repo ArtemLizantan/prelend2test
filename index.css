@@ -196,7 +196,6 @@ html {
 }
 
 .prelend__left h1 {
-  font-weight: 600;
   font-size: 4vh;
   color: #fff;
   max-width: 33vw;
@@ -334,7 +333,7 @@ html {
     gap: 20px;
   }
   .prelend__leftWrap h1 {
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
   }
 }
