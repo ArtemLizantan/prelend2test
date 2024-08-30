@@ -1,0 +1,350 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes flareAnimation {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: #030508;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wheel {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  animation: spin 10s linear infinite;
+}
+
+.prelend {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 50;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%; /* Adjust the height as needed */
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+}
+
+.prelend__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.prelend__right {
+  width: 60vw;
+  height: 100vh;
+  position: relative;
+}
+
+.person-img {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.prelend__left {
+  width: 40vw;
+  padding: 4vw;
+  position: relative;
+  z-index: 100;
+}
+
+.prelend__leftWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.prelend__left h1 {
+  font-weight: 600;
+  font-size: 4vh;
+  color: #fff;
+  max-width: 33vw;
+  text-align: center;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.prelend__left a {
+  background: linear-gradient(180deg, #18e9fd 0%, #ff2c95 100%);
+  border-radius: 5px;
+  padding: 0.5vw 3vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow-x: hidden;
+  display: block;
+
+  background-size: 200% 200%;
+  animation: gradientShift 2s ease infinite;
+}
+
+.prelend__left a span {
+  font-weight: 700;
+  font-size: 2vw;
+  background: linear-gradient(180deg, #fff 0%, #f4f6fd 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 991px) {
+  .prelend__left a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0.208vw 0.321vw 0 #168dff, inset 0 0.508vw 0.521vw 0 #fff;
+  }
+}
+
+.person-mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .wheel {
+    display: none;
+  }
+  .prelend__body {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .prelend__right {
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .prelend__left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .prelend__leftWrap {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .prelend__leftWrap h1 {
+    max-width: unset;
+    font-size: 30px;
+  }
+  .prelend__leftWrap a {
+    background-size: 200% 200%;
+    animation: gradientShift 2s ease infinite;
+    padding: 25px 30px;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 4px 10px 0 #168dff, inset 0 4px 10px 0 #fff;
+    background: linear-gradient(180deg, #18e9fd 0%, #ff2c95 100%);
+  }
+  .prelend__leftWrap a span {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 556px) {
+  .person-img {
+    object-fit: cover;
+  }
+  .prelend__leftWrap {
+    padding: 20px;
+  }
+  .wheel {
+    bottom: -30%;
+    width: 100vw;
+    left: 1%;
+    transform: translate(-50%, -0%);
+  }
+  .person-mobile {
+    background-position: top;
+  }
+  .prelend__left a {
+    padding: 15px 30px;
+    background-size: 200% 200%;
+    animation: gradientShift 2s ease infinite;
+  }
+  .prelend__left a span {
+    font-size: 20px;
+  }
+  .prelend__leftWrap {
+    gap: 20px;
+  }
+  .prelend__leftWrap h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+}
