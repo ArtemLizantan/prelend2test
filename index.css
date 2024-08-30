@@ -103,16 +103,6 @@ html {
   }
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  background: #030508;
-  font-size: 1rem;
-  margin: 0;
-  line-height: 1.5;
-}
-
 .bg {
   position: absolute;
   top: 0;
